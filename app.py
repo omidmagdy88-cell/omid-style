@@ -3,10 +3,11 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 
-app = Flask(__name__)
+app = Flask(name)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shop.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = 'static'
+
 db = SQLAlchemy(app)
 
 class Product(db.Model):
@@ -48,7 +49,7 @@ def delete(id):
     db.session.commit()
     return redirect(url_for('admin'))
 
-if __name__ == '__main__':
+if name == 'main':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
