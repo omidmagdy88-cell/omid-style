@@ -2,6 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>پنل مدیریت - Omid Style</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
@@ -9,36 +10,55 @@
         body { background: #f4f6f8; padding: 20px; }
         .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         h1, h2 { color: #1e3c72; margin-bottom: 20px; }
-        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Vazirmatn'; }
-        button { background: #1e3c72; color: white; padding: 12px 25px; border: none; border-radius: 8px; cursor: pointer; font-family: 'Vazirmatn'; font-size: 16px; }
-        .product-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee; }
-        .delete-btn { background: #ff6b6b; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-size: 14px; }
+        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Vazirmatn'; font-size: 14px; }
+        input[type="file"] { padding: 8px; background: #f8f9fa; border: 1px dashed #1e3c72; }
+        button { background: #1e3c72; color: white; padding: 12px 25px; border: none; border-radius: 8px; cursor: pointer; font-family: 'Vazirmatn'; font-size: 16px; width: 100%; font-weight: bold; }
+        button:hover { background: #2a5298; }
+        
+        .product-item { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee; gap: 10px; }
+        .product-info { font-size: 14px; color: #333; }
+        .delete-btn { background: #ff6b6b; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-size: 13px; font-weight: bold; }
+
+        /* استایل مخصوص موبایل */
+        @media (max-width: 600px) {
+            .container { padding: 20px 15px; }
+            h1 { font-size: 20px; }
+            h2 { font-size: 16px; }
+            .product-item { flex-direction: column; text-align: center; }
+            .delete-btn { width: 100%; text-align: center; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>پنل مدیریت Omid Style</h1>
+        
         <h2>افزودن محصول جدید</h2>
         <form method="POST" enctype="multipart/form-data">
-            <input type="text" name="name" placeholder="اسم محصول" required>
-            <input type="number" name="price" placeholder="قیمت (تومان)" required>
-            <input type="file" name="image_file" accept="image/*" required style="padding: 10px; border: 1px dashed #1e3c72;">
+            <input type="text" name="name" placeholder="اسم محصول (مثلاً تیشرت نخی)" required>
+            <input type="number" name="price" placeholder="قیمت (به تومان)" required>
+            <input type="file" name="image_file" accept="image/*" required>
             <button type="submit">افزودن محصول</button>
         </form>
-        <hr style="margin: 30px 0;">
+
+        <hr style="margin: 30px 0; border: 1px solid #eee;">
+
         <h2>محصولات فعلی</h2>
         {% for product in products %}
         <div class="product-item">
-            <div>
+            <div class="product-info">
                 <strong>{{ product.name }}</strong> - {{ product.price }} تومان
             </div>
             <a href="/delete/{{ product.id }}" class="delete-btn">حذف</a>
         </div>
         {% else %}
-        <p>هنوز محصولی اضافه نشده است.</p>
+        <p style="text-align: center; color: #666; margin-top: 10px;">هنوز محصولی اضافه نشده است.</p>
         {% endfor %}
+        
         <br>
-        <a href="/" style="color: #1e3c72;">بازگشت به فروشگاه</a>
+        <div style="text-align: center;">
+            <a href="/" style="color: #1e3c72; font-weight: bold; text-decoration: none;">بازگشت به فروشگاه</a>
+        </div>
     </div>
 </body>
 </html>
