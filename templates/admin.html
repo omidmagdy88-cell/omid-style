@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>پنل مدیریت - Omid Style</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+        body { background: #f4f6f8; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h1, h2 { color: #1e3c72; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Vazirmatn'; }
+        button { background: #1e3c72; color: white; padding: 12px 25px; border: none; border-radius: 8px; cursor: pointer; font-family: 'Vazirmatn'; font-size: 16px; }
+        .product-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee; }
+        .delete-btn { background: #ff6b6b; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>پنل مدیریت Omid Style</h1>
+        <h2>افزودن محصول جدید</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="اسم محصول" required>
+            <input type="number" name="price" placeholder="قیمت (تومان)" required>
+            <input type="file" name="image_file" accept="image/*" required style="padding: 10px; border: 1px dashed #1e3c72;">
+            <button type="submit">افزودن محصول</button>
+        </form>
+        <hr style="margin: 30px 0;">
+        <h2>محصولات فعلی</h2>
+        {% for product in products %}
+        <div class="product-item">
+            <div>
+                <strong>{{ product.name }}</strong> - {{ product.price }} تومان
+            </div>
+            <a href="/delete/{{ product.id }}" class="delete-btn">حذف</a>
+        </div>
+        {% else %}
+        <p>هنوز محصولی اضافه نشده است.</p>
+        {% endfor %}
+        <br>
+        <a href="/" style="color: #1e3c72;">بازگشت به فروشگاه</a>
+    </div>
+</body>
+</html>
