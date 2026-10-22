@@ -7,37 +7,45 @@
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
-        body { background-color: #f4f6f8; color: #333; }
+        body { background-color: #f8f9fa; color: #333; }
         
         /* هدر */
-        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; }
-        .logo { font-size: 24px; font-weight: 900; color: #1e3c72; text-decoration: none; }
+        header { background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 26px; font-weight: 900; color: #1e3c72; text-decoration: none; }
         .logo span { color: #ff6b6b; }
-        nav { order: 3; width: 100%; overflow-x: auto; }
-        nav ul { display: flex; list-style: none; gap: 20px; padding-bottom: 5px; white-space: nowrap; }
-        nav a { text-decoration: none; color: #555; font-weight: 500; font-size: 15px; }
-        .cart-icon { background: #1e3c72; color: white; padding: 8px 15px; border-radius: 8px; text-decoration: none; font-size: 14px; }
+        .cart-btn { background: #1e3c72; color: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-size: 14px; font-weight: bold; transition: 0.3s; }
+        .cart-btn:hover { background: #ff6b6b; }
+        
+        /* منو */
+        .menu { display: flex; gap: 25px; list-style: none; }
+        .menu a { text-decoration: none; color: #555; font-weight: 500; font-size: 15px; transition: 0.3s; }
+        .menu a:hover { color: #1e3c72; }
         
         /* بنر */
-        .hero { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; text-align: center; padding: 50px 20px; }
-        .hero h1 { font-size: 28px; margin-bottom: 10px; }
-        .hero p { font-size: 15px; opacity: 0.9; margin-bottom: 20px; }
-        .hero button { background: #ff6b6b; color: white; border: none; padding: 12px 30px; font-size: 15px; border-radius: 25px; cursor: pointer; font-family: 'Vazirmatn'; font-weight: bold; }
+        .hero { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; text-align: center; padding: 70px 20px; border-radius: 0 0 50px 50px; }
+        .hero h1 { font-size: 36px; margin-bottom: 15px; font-weight: 900; }
+        .hero p { font-size: 18px; opacity: 0.9; margin-bottom: 30px; }
+        .hero button { background: #ff6b6b; color: white; border: none; padding: 15px 40px; font-size: 16px; border-radius: 50px; cursor: pointer; font-family: 'Vazirmatn'; font-weight: bold; box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3); transition: 0.3s; }
+        .hero button:hover { transform: translateY(-3px); }
         
         /* محصولات */
-        .products-section { max-width: 1200px; margin: 40px auto; padding: 0 15px; }
-        .section-title { text-align: center; font-size: 22px; color: #1e3c72; margin-bottom: 25px; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
-        .product-img { width: 100%; height: 220px; object-fit: cover; background: #eee; display: block; }
-        .product-info { padding: 15px; text-align: right; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .product-info h3 { font-size: 16px; margin-bottom: 10px; color: #333; }
-        .product-price { color: #ff6b6b; font-weight: bold; font-size: 16px; margin-bottom: 15px; }
-        .add-to-cart { width: 100%; background: #1e3c72; color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-family: 'Vazirmatn'; font-size: 14px; margin-top: auto; }
+        .products-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        .section-title { text-align: center; font-size: 28px; color: #1e3c72; margin-bottom: 40px; font-weight: 900; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 30px; }
+        
+        /* کارت محصول */
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .product-img { width: 100%; height: 280px; object-fit: cover; background: #f4f4f4; display: block; }
+        .product-info { padding: 20px; text-align: right; }
+        .product-info h3 { font-size: 18px; margin-bottom: 10px; color: #333; font-weight: bold; }
+        .product-price { color: #ff6b6b; font-weight: 900; font-size: 20px; margin-bottom: 20px; }
+        .add-to-cart { width: 100%; background: #1e3c72; color: white; border: none; padding: 12px; border-radius: 12px; cursor: pointer; font-family: 'Vazirmatn'; font-size: 15px; font-weight: bold; transition: 0.3s; }
+        .add-to-cart:hover { background: #2a5298; }
         
         /* فوتر */
-        footer { background: #1e3c72; color: white; text-align: center; padding: 20px; margin-top: 40px; font-size: 14px; }
+        footer { background: #1e3c72; color: white; text-align: center; padding: 30px; margin-top: 60px; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -45,23 +53,21 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo">Omid <span>Style</span></a>
-            <a href="#" class="cart-icon">🛒 سبد خرید (0)</a>
-            <nav>
-                <ul>
-                    <li><a href="#">خانه</a></li>
-                    <li><a href="#">تیشرت‌ها</a></li>
-                    <li><a href="#">شلوار</a></li>
-                    <li><a href="#">درباره ما</a></li>
-                </ul>
-            </nav>
+            <ul class="menu">
+                <li><a href="#">خانه</a></li>
+                <li><a href="#">تیشرت‌ها</a></li>
+                <li><a href="#">شلوار</a></li>
+                <li><a href="#">درباره ما</a></li>
+            </ul>
+            <a href="#" class="cart-btn">🛒 سبد خرید (0)</a>
         </div>
     </header>
-
     <section class="hero">
         <h1>جدیدترین تیشرت‌های فصل</h1>
         <p>با کیفیت عالی و طراحی منحصر به فرد</p>
         <button>مشاهده محصولات</button>
     </section>
+
     <section class="products-section">
         <h2 class="section-title">محصولات ما</h2>
         <div class="product-grid">
