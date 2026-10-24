@@ -57,4 +57,4 @@ def delete(id):
 if name == 'main':
     with app.app_context():
         db.create_all()
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=10000)
