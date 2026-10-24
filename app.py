@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 
-app = Flask(__name__)
+app = Flask(name)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shop.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = 'static'
@@ -21,7 +21,6 @@ def home():
     products = Product.query.all()
     return render_template('index.html', products=products)
 
-# --- مسیر جدید برای صفحه درباره ما ---
 @app.route('/about')
 def about():
     return render_template('about.html')
@@ -54,8 +53,9 @@ def delete(id):
     db.session.commit()
     return redirect(url_for('admin'))
 
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-port = int(os.environ.get('PORT', 10000))
-app.run(host='0.0.0.0', port=port)
+with app.app_context():
+    db.create_all()
+
+if name == 'main':
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port)
