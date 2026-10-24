@@ -7,41 +7,27 @@
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg-dark: #0a0f1d;
-            --bg-card: #131a2b;
-            --primary-blue: #2563eb;
-            --accent-blue: #3b82f6;
-            --text-light: #ffffff;
-            --text-muted: #94a3b8;
-            --border-color: #1e293b;
-        }
-
+        :root { --bg-dark: #0a0f1d; --bg-card: #131a2b; --primary-blue: #2563eb; --accent-blue: #3b82f6; --text-light: #ffffff; --text-muted: #94a3b8; --border-color: #1e293b; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
         body { background-color: var(--bg-dark); color: var(--text-light); overflow-x: hidden; }
         a { text-decoration: none; color: inherit; }
-
-        /* هدر */
+        
         header { background-color: rgba(10, 15, 29, 0.95); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
         .top-nav { max-width: 1300px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         .logo-area { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 900; }
         .logo-area i { color: var(--accent-blue); font-size: 28px; }
         .logo-area span { color: var(--accent-blue); }
-        
         .search-bar { flex: 1; max-width: 400px; position: relative; margin: 0 20px; }
         .search-bar input { width: 100%; padding: 10px 40px 10px 15px; border-radius: 30px; border: 1px solid var(--border-color); background: var(--bg-card); color: white; outline: none; font-family: 'Vazirmatn'; }
         .search-bar i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
-        
         .nav-icons { display: flex; gap: 20px; font-size: 18px; color: var(--text-muted); align-items: center; }
         .cart-btn { background: var(--primary-blue); color: white; padding: 8px 15px; border-radius: 8px; font-size: 14px; font-weight: bold; transition: 0.3s; }
         .cart-btn:hover { background: #1d4ed8; }
-
         .bottom-nav { border-top: 1px solid var(--border-color); padding: 10px 20px; max-width: 1300px; margin: 0 auto; overflow-x: auto; white-space: nowrap; }
         .menu { list-style: none; display: flex; gap: 30px; justify-content: center; }
-        .menu a { font-size: 14px; color: var(--text-muted); font-weight: 500; transition: 0.3s; }
+        .menu a { font-size: 14px; color: var(--text-muted); font-weight: 500; transition: 0.3s; cursor: pointer; }
         .menu a:hover { color: var(--accent-blue); }
 
-        /* هیرو */
         .hero { max-width: 1300px; margin: 0 auto; padding: 40px 20px; display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 500px; position: relative; }
         .hero-text { flex: 1; }
         .hero-text p.subtitle { color: var(--text-muted); font-size: 16px; margin-bottom: 10px; }
@@ -56,12 +42,10 @@
         .hero-image { flex: 1; display: flex; justify-content: center; align-items: center; }
         .hero-image img { max-width: 100%; height: auto; border-radius: 20px; filter: drop-shadow(0 0 30px rgba(37, 99, 235, 0.4)); }
 
-        /* ویژگی‌ها */
         .features { max-width: 1300px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
         .feature-item { display: flex; align-items: center; justify-content: center; gap: 15px; color: var(--text-muted); font-size: 14px; }
         .feature-item i { font-size: 24px; color: white; }
 
-        /* دسته بندی */
         .categories-section { max-width: 1300px; margin: 60px auto; padding: 0 20px; text-align: center; }
         .section-title { font-size: 24px; margin-bottom: 10px; }
         .section-subtitle { color: var(--text-muted); font-size: 14px; margin-bottom: 40px; }
@@ -76,7 +60,6 @@
         .cat-card h3 { font-size: 16px; margin-bottom: 5px; }
         .cat-card p { font-size: 12px; color: var(--text-muted); }
 
-        /* محصولات */
         .products-section { max-width: 1300px; margin: 60px auto; padding: 0 20px; }
         .products-section .section-title { text-align: center; margin-bottom: 40px; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
@@ -89,7 +72,6 @@
         .add-to-cart { width: 100%; background: var(--primary-blue); color: white; border: none; padding: 12px; border-radius: 12px; cursor: pointer; font-family: 'Vazirmatn'; font-size: 15px; font-weight: bold; transition: 0.3s; }
         .add-to-cart:hover { background: #1d4ed8; }
 
-        /* فوتر */
         footer { border-top: 1px solid var(--border-color); padding: 30px 20px; margin-top: 80px; }
         .footer-content { max-width: 1300px; margin: 0 auto; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
         .footer-badge { display: flex; align-items: center; gap: 10px; color: var(--text-muted); font-size: 14px; }
@@ -108,33 +90,23 @@
     </style>
 </head>
 <body>
-    <!-- هدر -->
     <header>
         <div class="top-nav">
-            <div class="logo-area">
-                <i class="fa-solid fa-gem"></i>
-                Omid <span>Style</span>
-            </div>
-            <div class="search-bar">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="جستجو در فروشگاه...">
-            </div>
-            <div class="nav-icons">
-                <a href="#" class="cart-btn">🛒 سبد خرید (0)</a>
-            </div>
+            <div class="logo-area"><i class="fa-solid fa-gem"></i> Omid <span>Style</span></div>
+            <div class="search-bar"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="جستجو در فروشگاه..."></div>
+            <div class="nav-icons"><a href="#" class="cart-btn" id="cart-btn">🛒 سبد خرید (0)</a></div>
         </div>
         <div class="bottom-nav">
             <ul class="menu">
                 <li><a href="#">خانه</a></li>
-                <li><a href="#products">محصولات</a></li>
-                <li><a href="#">تیشرت‌ها</a></li>
-                <li><a href="#">شلوار</a></li>
+                <li><a href="#products" class="nav-link">محصولات</a></li>
+                <li><a href="#products" class="nav-link">تیشرت‌ها</a></li>
+                <li><a href="#products" class="nav-link">شلوار</a></li>
                 <li><a href="/about">درباره ما</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- هیرو -->
     <section class="hero">
         <div class="hero-text">
             <p class="subtitle">به فروشگاه</p>
@@ -142,7 +114,7 @@
             <h2 style="font-size: 20px; margin-bottom: 15px;">سبک زندگی تو، انتخاب ماست</h2>
             <p class="desc">در Omid Style فقط محصول نمی‌فروشیم؛ ما سبک، رنگ، کیفیت و اعتماد را به شما هدیه می‌دهیم.</p>
             <div class="hero-buttons">
-                <button class="btn-primary" onclick="document.querySelector('.products-section').scrollIntoView({behavior: 'smooth'})">مشاهده دسته بندی ها <i class="fa-solid fa-arrow-left"></i></button>
+                <button class="btn-primary" id="scroll-to-products">مشاهده محصولات <i class="fa-solid fa-arrow-left"></i></button>
                 <a href="/about" class="btn-outline">درباره ما <i class="fa-regular fa-circle-play"></i></a>
             </div>
         </div>
@@ -151,14 +123,12 @@
         </div>
     </section>
 
-    <!-- ویژگی‌ها -->
     <section class="features">
         <div class="feature-item"><i class="fa-solid fa-headset"></i><span>پشتیبانی ۲۴ ساعته</span></div>
         <div class="feature-item"><i class="fa-solid fa-medal"></i><span>ضمانت کیفیت</span></div>
         <div class="feature-item"><i class="fa-solid fa-truck-fast"></i><span>ارسال سریع</span></div>
     </section>
 
-    <!-- دسته بندی -->
     <section class="categories-section">
         <h2 class="section-title">دسته بندی محصولات</h2>
         <p class="section-subtitle">انتخاب بهتر زندگی بهتر</p>
@@ -170,7 +140,6 @@
         </div>
     </section>
 
-    <!-- محصولات -->
     <section class="products-section" id="products">
         <h2 class="section-title">جدیدترین محصولات</h2>
         <div class="product-grid">
@@ -187,7 +156,6 @@
         </div>
     </section>
 
-    <!-- فوتر -->
     <footer>
         <div class="footer-content">
             <div class="footer-badge"><i class="fa-solid fa-shield-halved"></i><span>خرید مطمئن</span></div>
@@ -195,27 +163,39 @@
             <div class="footer-badge"><i class="fa-regular fa-heart"></i><span>تنوع بی‌نظیر</span></div>
         </div>
     </footer>
-    <!-- اسکریپت دکمه‌ها -->
+
     <script>
         let cartCount = 0;
-
-        // ۱. دکمه‌های افزودن به سبد خرید
+        // دکمه‌های افزودن به سبد
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', function() {
                 cartCount++;
-                document.querySelector('.cart-btn').innerHTML = 🛒 سبد خرید (${cartCount});
+                document.getElementById('cart-btn').innerHTML = 🛒 سبد خرید (${cartCount});
                 alert('محصول به سبد خرید اضافه شد!');
             });
         });
 
-        // ۲. دکمه سبد خرید
-        document.querySelector('.cart-btn').addEventListener('click', function(e) {
+        // دکمه سبد خرید
+        document.getElementById('cart-btn').addEventListener('click', function(e) {
             e.preventDefault();
             if (cartCount === 0) {
                 alert('سبد خرید شما خالی است.');
             } else {
                 alert(شما ${cartCount} محصول در سبد خرید دارید.);
             }
+        });
+
+        // اسکرول به محصولات
+        document.getElementById('scroll-to-products').addEventListener('click', function() {
+            document.getElementById('products').scrollIntoView({behavior: 'smooth'});
+        });
+
+        // لینک‌های منو (تیشرت‌ها و شلوار)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('products').scrollIntoView({behavior: 'smooth'});
+            });
         });
     </script>
 
